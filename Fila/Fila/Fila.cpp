@@ -59,7 +59,7 @@ void menu()
 void inicializar()
 {
 
-	// se a lista j· possuir elementos
+	// se a lista j√° possuir elementos
 	// libera a memoria ocupada
 	NO* aux = inicio;
 	while (aux != NULL) {
@@ -83,18 +83,43 @@ void insere()
 	{
 		return;
 	}
-
+	
+	NO* aux = fim;
 	cout << "Digite o elemento: ";
 	cin >> novo->valor;
 	novo->prox = NULL;
-
-
+	
+	if (aux == NULL) {
+		inicio = novo;
+		fim = novo;
+	}
+	else {
+		fim->prox = novo;
+		fim = novo;
+		cout << "elemento inserido" << endl;
+	}
 }
 
 void remove()
 {
+	NO* aux = inicio;
+	NO* excluir = NULL;
 
-
-
+	if (aux != NULL) {
+		if (aux->prox == NULL) {
+			free(aux);
+			inicio = NULL;
+			fim = NULL;
+		}
+		else {
+			excluir = aux;
+			inicio = aux->prox;
+			fim = NULL;
+			cout << "elemento excluido" << endl;
+		}
+	}
+	else {
+		cout << "lista vazia" << endl;
+	}
 }
 
