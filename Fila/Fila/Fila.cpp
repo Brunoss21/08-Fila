@@ -106,20 +106,25 @@ void remove()
 	NO* excluir = NULL;
 
 	if (aux != NULL) {
+
 		if (aux->prox == NULL) {
-			free(aux);
+
+			excluir = aux;
+			free(excluir);
 			inicio = NULL;
 			fim = NULL;
+
 		}
 		else {
+
 			excluir = aux;
 			inicio = aux->prox;
-			fim = NULL;
-			cout << "elemento excluido" << endl;
+			free(excluir);
 		}
 	}
 	else {
-		cout << "lista vazia" << endl;
+
+		cout << "Lista Vazia\n";
 	}
 }
 
